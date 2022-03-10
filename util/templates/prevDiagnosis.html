@@ -1,0 +1,41 @@
+{% extends "userBase.html" %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prev Diagnosis</title>
+</head>
+<body>
+{% block content %}
+</br>
+</br>
+</br>
+<h1 class="text-center">Previous Diagnosis</h1>
+<table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="text-success">Name</th>
+                <th class="text-success">Doctor</th>
+                <th class="text-success">Hospital</th>
+                <th class="text-success">Prescription</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for d in diagnosisList %}
+            <tr>
+                <td>{{ d.name }}</td>
+                <td>{{ d.doctor }}</td>
+                <td>{{ d.hospital }}</td>
+                <td>{{ d.prescription }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+
+{% endblock %}
+
+</body>
+</html>

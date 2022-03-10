@@ -1,0 +1,53 @@
+{% extends "userBase.html" %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Detail</title>
+</head>
+<body>
+{% block content %}
+
+<br/>
+<br/>
+<br/>
+
+<h1 class=" text-center">User Details</h1>
+<form class="form-horizontal" role="form" action="/">
+    <div class="form-group ">
+        <label for="name"   class="col-sm-2 control-label text-success ">Name:</label>
+
+            <input disabled value="{{ patient.name }}" id="name"  class="form-control"/>
+
+
+    </div>
+    <div class="form-group">
+        <label for="age" class="col-sm-2 control-label text-success" >Age:</label>
+        <input disabled value="{{ patient.age }}" id="age"  class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label for="gender" class="col-sm-2 control-label text-success">Sex:</label>
+        <input disabled value="{{ patient.gender }}" id="gender" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label for="city"class="col-sm-2 control-label text-success">City:</label>
+        <input disabled value="{{ patient.city }}" id="city" class="form-control"/>
+    </div>
+
+    </br>
+    </br>
+    </br>
+    <div class="form-group align-content-center align-self-center justify-content-center">
+        <button value="Log Out" type="submit" class="align-content-center btn btn-danger">Log Out</button>
+    </div>
+
+
+</form>
+
+
+{% endblock %}
+
+</body>
+</html>

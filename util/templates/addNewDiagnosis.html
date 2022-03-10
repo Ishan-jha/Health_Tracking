@@ -1,0 +1,69 @@
+{% extends "userBase.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Diagnosis</title>
+</head>
+<body>
+Add {{ user.name }}
+
+<label title="Add {{ user.name }}"/>
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+</br>
+</br>
+</br>
+<h1 class="text-success text-center">Add New Diagnosis for {{ user.name }}</h1>
+
+
+<div class="container justify-content-center">
+		       <div class="row">
+
+
+		           <div class="col col-md-8 bg-secondary text-white" >
+
+					    <form action="{% url 'saveNewDiagnosis' %}" method="post" >
+                {% csrf_token %}
+
+
+                <div class="mb-3">
+                    <label for="name" class="form-label">Diagnosis Name:</label>
+                    <input type="text" class="form-control" name="name" id="name" >
+
+                </div>
+                            <div class="mb-3">
+                    <label for="name" class="form-label">Doctor:</label>
+                    <input type="text" class="form-control" name="doctor" id="doctor" >
+
+                </div>
+                            <div class="mb-3">
+                    <label for="name" class="form-label">Hospital:</label>
+                    <input type="text" class="form-control" name="hospital" id="hospital" >
+
+                </div>
+                            <div class="mb-3">
+                    <label for="name" class="form-label">Prescription:</label>
+                    <input type="text" class="form-control" name="prescription" id="prescription" >
+
+                </div>
+							 <button type="submit" class="btn btn-primary">Save</button>
+
+                            <input type="hidden" name="user" value="{{ user.name }}">
+						</form>
+
+		              <!--  <form action="{% url 'saveNewDiagnosis' %}" method="POST" role="form" class="form-inline">
+		                 {% csrf_token %}
+		                 {{ form|crispy }}
+		                                 <button type="submit" class="btn btn-primary">Save</button>
+
+		             </form>-->
+		           </div>
+
+{% endblock %}
+
+</body>
+</html>

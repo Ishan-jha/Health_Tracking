@@ -1,0 +1,54 @@
+{% extends "userBase.html" %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find Disease</title>
+</head>
+<body>
+{% block content %}
+
+</br>
+</br>
+</br>
+
+<h1 class="text-center">Find Disease</h1>
+<form method="POST" action="{% url 'findDisease' %}">
+    {% csrf_token %}
+    <input class="form-control me-2" type="search" placeholder="Enter Symptom" name="symptom">
+<button class="btn btn-outline-info" type="submit">Search Disease</button>
+</form>
+
+
+{% if diseases %}
+</br>
+</br>
+</br>
+<h3 class="text-center text-danger">Possible Disease</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="text-success">Name</th>
+                <th class="text-success">Description</th>
+                <th class="text-success">Symproms</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for disease in diseases %}
+            <tr>
+                <td class="text-danger">{{ disease.name }}</td>
+                <td>{{ disease.description }}</td>
+                <td>{{ disease.keywords }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+{% endif %}
+
+{% endblock %}
+
+</body>
+</html>
